@@ -63,15 +63,6 @@ task :test => :build
 
 
 #
-# Generate the documentation
-#
-RDoc::Task.new do |rd|
-    rd.main = "README.rdoc"
-    rd.rdoc_dir = "doc/site/api"
-    rd.rdoc_files.include("README.rdoc", "ext/**/*.[ch]","lib/**/*.rb")
-end
-
-#
 # Packaging
 #
 PKG_FILES = FileList[
