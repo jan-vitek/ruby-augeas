@@ -23,12 +23,16 @@ require 'mkmf'
 
 extension_name = '_augeas'
 
-unless pkg_config("augeas")
-    raise "augeas-devel not installed"
+unless have_library("augeas")
+  raise "libaugeas is not installed"
 end
 
-unless pkg_config("libxml-2.0")
-    raise "libxml2-devel not installed"
+pkg_config('augeas')
+
+unless have_library("xml2")
+  raise "libxml2 is not installed"
 end
+
+pkg_config('libxml-2.0')
 
 create_makefile(extension_name)
